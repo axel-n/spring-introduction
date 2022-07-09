@@ -2,9 +2,7 @@ package com.example.demo.service
 
 import com.example.demo.model.NotificationType
 import com.example.demo.service.sender.Sender
-import org.springframework.stereotype.Service
 
-@Service
 class NotificationService(
     private val senders: HashSet<Sender>
 ) {

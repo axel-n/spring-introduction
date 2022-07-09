@@ -1,11 +1,15 @@
 package com.example.demo
 
-import org.springframework.boot.autoconfigure.SpringBootApplication
-import org.springframework.boot.runApplication
 
-@SpringBootApplication
+import com.example.demo.service.NotificationService
+import com.example.demo.service.sender.EmailSender
+import com.example.demo.service.sender.TelegramSender
+
 class DemoApplication
 
-fun main(args: Array<String>) {
-	runApplication<DemoApplication>(*args)
+fun main() {
+	val emailSender = EmailSender(false, "something")
+    val telegramSender = TelegramSender()
+
+    NotificationService(HashSet(setOf(emailSender, telegramSender)))
 }

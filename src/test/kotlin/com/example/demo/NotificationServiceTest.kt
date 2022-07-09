@@ -2,16 +2,17 @@ package com.example.demo
 
 import com.example.demo.model.NotificationType
 import com.example.demo.service.NotificationService
+import com.example.demo.service.sender.EmailSender
+import com.example.demo.service.sender.TelegramSender
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.assertThrows
-import org.springframework.beans.factory.annotation.Autowired
-import org.springframework.boot.test.context.SpringBootTest
 
-@SpringBootTest
 class NotificationServiceTest {
 
-    @Autowired
-    private lateinit var notificationService: NotificationService
+    private val emailSender = EmailSender(false, "")
+    private val telegramSender = TelegramSender()
+    private val notificationService: NotificationService =
+        NotificationService(HashSet(setOf(emailSender, telegramSender)))
 
     @Test
     fun emailSendTest() {
