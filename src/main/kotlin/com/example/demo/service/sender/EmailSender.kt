@@ -1,9 +1,7 @@
 package com.example.demo.service.sender
 
 import com.example.demo.model.NotificationType
-import org.springframework.stereotype.Service
 
-@Service
 class EmailSender(
    private val isNeedRetry: Boolean,
    private val mailConfig: String // for example
